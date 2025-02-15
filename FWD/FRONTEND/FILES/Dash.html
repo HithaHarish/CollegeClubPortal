@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f2f5; /* Light grey background for the whole page */
+            display: flex;
+        }
+        .sidebar {
+            background: #2c3e50; /* Dark blue-grey for sidebar background */
+            color: #ecf0f1; /* Light grey for sidebar text */
+            width: 200px; /* Sidebar width */
+            height: 100vh; /* Full height */
+            position: fixed; /* Fixed position */
+            padding: 20px;
+            box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+        }
+        .sidebar h2 {
+            display: none; /* Hide the upper Dashboard title */
+        }
+        .sidebar ul {
+            list-style: none;
+            padding: 0;
+            display: none; /* Initially hide menu items */
+        }
+        .sidebar ul.visible {
+            display: block; /* Show menu items when toggled */
+        }
+        .sidebar ul li {
+            margin: 10px 0;
+        }
+        .sidebar a {
+            color: #ecf0f1; /* Light grey for links */
+            text-decoration: none;
+            padding: 10px;
+            transition: background 0.3s;
+            display: flex; /* Flex for icon and text */
+            align-items: center; /* Center the icon and text vertically */
+        }
+        .sidebar a:hover {
+            background: #34495e; /* Slightly lighter blue-grey on hover */
+        }
+        .sidebar i {
+            margin-right: 10px; /* Space between icon and text */
+        }
+        .menu-icon {
+            cursor: pointer;
+            font-size: 20px;
+            margin-bottom: 10px;
+            display: flex; /* Flex for icon and text */
+            align-items: center; /* Center the icon and text vertically */
+            color: #ecf0f1; /* Light grey for menu icon */
+        }
+        .menu-icon span {
+            margin-left: 10px; /* Space between icon and text */
+        }
+        .content {
+            margin-left: 220px; /* Adjust for sidebar width */
+            padding: 20px;
+            width: calc(100% - 220px); /* Adjust content width */
+        }
+        main {
+            display: flex;
+            flex-wrap: wrap;
+        }
+        .card {
+            background: #ffffff; /* White background for cards */
+            margin: 20px;
+            padding: 20px;
+            flex: 1;
+            min-width: 300px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            border-radius: 8px; /* Slightly rounded corners for cards */
+        }
+        .card h2 {
+            color: #2c3e50; /* Dark blue-grey for card titles */
+        }
+        .hidden {
+            display: none;
+        }
+        .event-img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+        .event-details {
+            margin-top: 10px;
+        }
+        .event-details p {
+            margin: 5px 0;
+        }
+        .event-details .title {
+            font-weight: bold;
+            font-size: 1.2em;
+        }
+    </style>
+</head>
+<body>
+    <div class="sidebar" id="sidebar">
+        <div class="menu-icon" onclick="toggleMenu()">
+            <i class="fas fa-bars"></i><span>Dashboard</span>
+        </div>
+        <ul id="menu-items">
+            <li><a href="#" onclick="showSection('home')"><i class="fas fa-home"></i>Home</a></li>
+            <li><a href="#" onclick="showSection('past-events')"><i class="fas fa-calendar-alt"></i>Past Events</a></li>
+            <li><a href="#" onclick="showSection('registrations')"><i class="fas fa-user-check"></i>Registrations</a></li>
+            <li><a href="#" onclick="showSection('recruitment')"><i class="fas fa-briefcase"></i>Recruitment</a></li>
+            <li><a href="#" onclick="showSection('contact')"><i class="fas fa-envelope"></i>Contact Us</a></li>
+        </ul>
+    </div>
+    <div class="content" id="content">
+        <main>
+            <section class="card" id="home">
+                <h2>Home</h2>
+                <p>Welcome to the dashboard! Here you can find various sections to manage your activities.</p>
+            </section>
+            <section class="card hidden" id="past-events">
+                <h2>Past Events</h2>
+                <div id="event-list">
+                    <!-- Past events will be rendered here -->
+                </div>
+            </section>
+            <section class="card hidden" id="registrations">
+                <h2>Registrations</h2>
+                <p>Loading registrations...</p>
+            </section>
+            <section class="card hidden" id="recruitment">
+                <h2>Recruitment</h2>
+                <p>Loading recruitment data...</p>
+            </section>
+            <section class="card hidden" id="contact">
+                <h2>Contact Us</h2>
+                <p>Email: contact@example.com</p>
+                <p>Phone: (123) 456-7890</p>
+            </section>
+        </main>
+    </div>
+    <script>
+        const pastEvents = [
+            {
+                title: "Spin Locked",
+                date: "December 15, 2023",
+                registrationFee: "80",
+                prize: "Trophy and 500",
+                description: "An engaging event that challenges participants to solve puzzles within a locked environment. Test your wit and speed!",
+                image: "https://example.com/event1.jpg"
+            },
+            {
+                title: "Numero Fiesta",
+                date: "July 20-22, 2023",
+                registrationFee: "150",
+                prize: "Trophy and 1000",
+                description: "A math competition celebrating numerical prowess. Compete in teams and solve a series of challenging problems.",
+                image: "https://example.com/event2.jpg"
+            },
+            {
+                title: "Race the Maze",
+                date: "December 14, 2023",
+                registrationFee: "50",
+                prize: "Medals and 300",
+                description: "Navigate through a complex maze in the shortest time possible. A test of both speed and strategy.",
+                image: "https://example.com/event3.jpg"
+            },
+            {
+                title: "Huntopia Infinito",
+                date: "December 13-15, 2023",
+                registrationFee: "180",
+                prize: "Trophy and 1500",
+                description: "A three-day treasure hunt event filled with excitement and adventure. Solve clues and find the hidden treasures.",
+                image: "https://example.com/event4.jpg"
+            },
+            {
+                title: "Mock IPL",
+                date: "May 17, 2024",
+                registrationFee: "200",
+                prize: "Trophy and 2000",
+                description: "Experience the thrill of cricket with our mock IPL event. Compete in teams and aim for the championship.",
+                image: "https://example.com/event5.jpg"
+            }
+        ];
+
+        function showSection(sectionId) {
+            const sections = document.querySelectorAll('main > section');
+            sections.forEach(section => {
+                section.classList.add('hidden');
+            });
+            document.getElementById(sectionId).classList.remove('hidden');
+
+            if (sectionId === 'past-events') {
+                const eventList = document.getElementById('event-list');
+                eventList.innerHTML = pastEvents.map(event => `
+                    <div class="card">
+                        <img class="event-img" src="${event.image}" alt="${event.title}">
+                        <div class="event-details">
+                            <p class="title">${event.title}</p>
+                            <p>Date: ${event.date}</p>
+                            <p>Registration Fee: ${event.registrationFee}</p>
+                            <p>Prize: ${event.prize}</p>
+                            <p>${event.description}</p>
+                        </div>
+                    </div>
+                `).join('');
+            }
+        }
+
+        function toggleMenu() {
+            const menuItems = document.getElementById('menu-items');
+            menuItems.classList.toggle('visible');
+        }
+
+        // Show home section by default
+        showSection('home');
+    </script>
+</body>
+</html>

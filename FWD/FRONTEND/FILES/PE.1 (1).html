@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Past Events</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Londrina+Sketch&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "DM Serif Display", serif;
+        }
+
+.orbitron {
+  font-family: "Orbitron", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 800;
+  font-style: normal;
+}
+        body {
+            background-color: #000;
+            color: white; /* Set font color to white */
+            line-height: 1.6;
+        }
+        h1, h2, h3 {
+            text-align: center;
+            color: white; /* Ensure headers are white */
+        }
+        h1 {
+            font-size: 2.6rem;
+        }
+        h2 {
+            font-size: 1.7rem;
+        }
+        h3 {
+            font-size: 1rem;
+        }
+        .navbar {
+        display: flex; /* Create a flex container */
+        justify-content: space-around; /* Distribute buttons evenly */
+        align-items: center; /* Center align items vertically */
+        background-color: #333; /* Dark background color */
+        padding: 10px; /* Add some padding around the bar */
+        position: sticky; /* Make it stick to the top of the viewport */
+        top: 0;
+        z-index: 1000;
+        flex-wrap: wrap; /* Allow buttons to wrap to a new row if necessary */
+        }
+
+        /* Buttons inside the navigation bar */
+        .nav-button {
+        background-color: #fff; /* Button background color */
+        color: #000; /* Button text color */
+        box-shadow: 1px 1px 10px #000;
+        padding: 10px 20px; /* Add padding for a nice size */
+        font-size: 16px; /* Adjust font size */
+        border-radius: 5px; /* Rounded corners */
+        cursor: pointer; /* Pointer cursor on hover */
+        transition: background-color 0.3s ease; /* Smooth hover effect */
+        margin: 5px; /* Add spacing between buttons */
+        text-decoration: none;
+        font-weight: bold;
+        
+        }
+
+        /* Button hover effect */
+        .nav-button:hover {
+        background-color: #42c9e4; /* Change color on hover */
+        }
+
+
+        /* Make the navigation bar sticky at the top */
+        .navbar {
+        background-color: #00d0ff;
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+        }
+        .heading {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 100px;
+            padding: 20px;
+            margin-top: 5px;
+        }
+        .logo1, .logo2 {
+            height: 120px;
+            width: auto;
+        }
+        .events {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            padding: 40px 20px;
+            gap: 40px;
+        }
+        .event {
+            background-color: #1f1f1f;
+            border-radius: 20px;
+            padding: 20px;
+            width: 300px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 5px solid white;
+        }
+        .event:hover {
+            transform: translateY(-20px);
+            box-shadow: 0 20px 40px #2bdaf5;
+        }
+        .eimg {
+            width: 100%;
+            height: auto;
+            border-radius: 15px;
+            margin-bottom: 15px;
+            border: 5px solid white;
+        }
+        p {
+            font-size: 0.9rem;
+            text-align: justify;
+            font-weight: 600;
+            color: white; /* Ensure text paragraphs are white */
+        }
+        button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            background-color: #ff0c0c;
+            color: rgb(91, 185, 232);
+            font-size: 1rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            border: 2px solid white;
+        }
+        button:hover {
+            background-color: rgb(4, 157, 253);
+        }
+        .topicheading {
+            margin: 50px auto 20px;
+            text-align: center;
+            font-size: 1.8rem;
+            margin-bottom: 30px;
+        }
+        .view-more {
+            cursor: pointer;
+            color: #40a2d8;
+            text-decoration: underline;
+            margin-top: -10px;
+        }
+        .expanded p {
+            display: block;
+            -webkit-line-clamp: unset;
+        }
+        
+        .cinzel {
+            font-family:Verdana  sans-serif;
+            font-optical-sizing: auto;
+            font-weight: 700;
+            font-style: normal;
+            font-size:2.8rem;
+            margin-top: 5px;
+            color: rgb(255, 250, 250) !important;
+            box-shadow: #00d9fa 0px 0px 40px 10px;
+            background-color: rgb(18, 27, 29);
+
+        }
+        .oswald-glow {
+            font-family: "Oswald", sans-serif;
+            font-optical-sizing: auto;
+            font-weight: 500;
+            font-style: normal;
+            margin-bottom: 5px;
+            font-size: 1.4rem;
+            color:rgb(0, 0, 0);
+            -webkit-animation:infinite;
+            text-shadow: 0 0 5px #fff,
+                0 0 10px #fff,
+                0 0 20px rgb(234, 232, 200),
+                0 0 30px rgb(91, 185, 232),
+                0 0 40px rgb(91, 185, 232),
+                0 0 55px rgb(27, 132, 185),
+                0 0 70px rgb(4, 36, 53);
+        }
+        @media (max-width: 768px) {
+            .heading {
+                flex-direction: column;
+                text-align: center;
+                gap: 20px;
+            }
+            .events {
+                flex-direction: column;
+                align-items: center;
+                gap: 30px;
+            }
+            .event {
+                width: 90%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <a class="nav-button" href="file:///C:/xampp/htdocs/FWD/FRONTEND/FILES/Home.1%20(1).html">HOME</a>
+        <a class="nav-button" href="file:///C:/xampp/htdocs/FWD/FRONTEND/FILES/UE.1%20(1).html">UPCOMING EVENTS</a>
+        <a class="nav-button" href="file:///C:/xampp/htdocs/FWD/FRONTEND/FILES/PE.1%20(1).html">PAST EVENTS</a>
+    </div>
+    <div class="heading">
+        <a href="https://www.bmsce.ac.in/" target="_blank">
+            <img class="logo1" src="./BMSCE.webp" alt="BMSCE Logo">
+        </a>
+        <h1 style="padding-bottom: 0px;margin-bottom:0px;">PENTAGRAM</h1>
+        <a href="./Home.html" target="_blank">
+            <img class="logo2" src="./pentagram.png" alt="Pentagram Logo">
+        </a>
+    </div>
+    <h1 class="topicheading orbitron cinzel" style="padding-top:0px;margin-top: 0px;">PAST EVENTS</h1>
+    <h2>Relive the Moments!</h2>
+    <h3>Here’s what we’ve achieved together:</h3>
+</div>
+<div class="events">
+    <!-- Event 1 -->
+    <div class="event">
+        <img class="eimg" src="spinlocked.jpg" alt="Spin Locked">
+        <div class="event-content ">
+            <h2 class="oswald-glow">SPIN LOCKED</h2>
+            <p class="dm-serif-display-regular">Held on December 14, 2024, "Spin Locked" was a strategic and mind-bending event that invited participants to "Break the Whirl, Defy the Loop." Designed to test participants' analytical and problem-solving abilities, this event provided a challenging yet entertaining experience. With lucrative prizes of ₹4000 and ₹2500 for the winners, Spin Locked attracted many eager contestants. Registration was set at ₹100, and the event became a highlight with its competitive spirit and unique mathematical puzzles.</p>
+            <span class="view-more" onclick="toggleDescription(this)">View More</span>
+        </div>
+    </div>
+
+    <!-- Event 2 -->
+    <div class="event">
+        <img class="eimg" src="fiesta.jpg" alt="numero fiesta">
+        <div class="event-content">
+            <h2 class="oswald-glow">NUMERO FIESTA</h2>
+            <p class="dm-serif-display-regular">Conducted on July 20, 21, and 22 in 2023, Numero Fiesta carried the theme "Mathematics for Everyone." This event was a celebration of math, designed to make the subject accessible and enjoyable to all participants, regardless of their level of expertise. It offered a variety of engaging activities and challenges, creating an environment where students could explore mathematical concepts in fun and innovative ways.</p>
+            <span class="view-more" onclick="toggleDescription(this)">View More</span>
+        </div>
+    </div>
+
+    <!-- Event 3 -->
+    <div class="event">
+        <img class="eimg" src="watt.jpg" alt="watt the f(x)">
+        <div class="event-content">
+            <h2 class="oswald-glow">WATT THE F(X)</h2>
+            <p class="dm-serif-display-regular">"Watt the F(x)" was an interactive and playful event held on June 19, 2024, during IEEE PES Week. Organized by Pentagram in collaboration with the IEEE PES club, the event featured creative puzzles and games centered on mathematical functions and problem-solving. With exciting goodies as rewards, the event brought together participants to learn and compete in a lively atmosphere, blending mathematics with fun.</p>
+            <span class="view-more" onclick="toggleDescription(this)">View More</span>
+        </div>
+    </div>
+</div>
+
+<div class="events">
+    <!-- Event 4 -->
+    <div class="event">
+        <img class="eimg" src="orientation.jpg" alt="Orientation">
+        <div class="event-content">
+            <h2 class="oswald-glow">ORIENTATION</h2>
+            <p class="dm-serif-display-regular">The "Orientation" event organized by Pentagram, the Mathematical Society of BMSCE, was designed to introduce new participants to the club's activities in a lively and engaging manner. This event included "Mini Games," which blended mathematics with fun, encouraging creative thinking and teamwork. Scheduled for December 5, 2023, at Auditorium 2, it aimed to foster enthusiasm for mathematics while building a strong community among attendees.</p>
+            <span class="view-more" onclick="toggleDescription(this)">View More</span>
+        </div>
+    </div>
+
+    <!-- Event 5 -->
+    <div class="event">
+        <img class="eimg" src="huntopia.jpg" alt="huntopia">
+        <div class="event-content">
+            <h2 class="oswald-glow">HUNTOPIA</h2>
+            <p class="dm-serif-display-regular">"Huntopia Infinito" was an enthralling treasure hunt event hosted by Pentagram, combining online prelims on December 13, 2023, with offline finals on December 15. With a registration fee of ₹120, the competition challenged participants with a mix of puzzles, riddles, and problem-solving tasks, offering lucrative prizes of ₹5,000 for the winner and ₹3,500 for the runner-up. It served as a platform to test participants' logical and analytical thinking in a fun, competitive environment.</p>
+            <span class="view-more" onclick="toggleDescription(this)">View More</span>
+        </div>
+    </div>
+
+    <!-- Event 6 -->
+    <div class="event">
+        <img class="eimg" src="mockipl.jpg" alt="MOCK IPL">
+        <div class="event-content">
+            <h2 class="oswald-glow">MOCK IPL</h2>
+            <p class="dm-serif-display-regular">"Mock IPL," held on May 17, 2024, was an innovative event that brought together strategy and sportsmanship. Hosted in the BSN Hall, this team-based competition invited participants to bid and strategize as though managing an IPL team. With a registration fee of ₹100 per team and prizes of ₹2,000 and ₹1,000 for the top two teams, it was an exciting event that combined cricket enthusiasm with management skills.</p>
+            <span class="view-more" onclick="toggleDescription(this)">View More</span>
+        </div>
+    </div>
+</div>
+<script>
+    function toggleDescription(element) {
+        const paragraph = element.previousElementSibling;
+        if (element.textContent === "View More") {
+            paragraph.style.display = "block";
+            element.textContent = "View Less";
+        } else {
+            paragraph.style.display = "-webkit-box";
+            element.textContent = "View More";
+        }
+    }
+
+    // Initialize paragraphs to show only a snippet
+    document.querySelectorAll(".dm-serif-display-regular").forEach(p => {
+        p.style.display = "-webkit-box";
+        p.style.webkitBoxOrient = "vertical";
+        p.style.webkitLineClamp = "3";
+        p.style.overflow = "hidden";
+    });
+</script>
+
+</body>
+</html>
+

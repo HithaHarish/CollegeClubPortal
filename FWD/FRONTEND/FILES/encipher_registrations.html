@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Participant Registration</title>
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* Reset some default browser styling */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'DM Serif Display', serif;
+        }
+
+        /* Body styling */
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-color: #000;
+            padding: 20px;
+        }
+
+        /* Container styling */
+        .form-container {
+            background-color: #b1ecf1;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 1px 1px 20px #fff;
+            max-width: 800px;
+            width: 50%;
+        }
+
+        h1 {
+            font-size: 1.5rem;
+            font-weight: bold;
+            text-align: center;
+            margin-bottom: 1rem;
+            color: #000;
+            filter: drop-shadow(1px 1px 20px #66b0c9);
+        }
+
+        /* Form field styling */
+        .form-field {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .form-field label {
+            flex: 1;
+            font-weight: bold;
+            color: #000;
+            font-size: 1rem;
+        }
+
+        .form-field i {
+            margin-right: 12px;
+            color: #000;
+            font-size: 1rem;
+        }
+
+        .form-field select,
+        .form-field input {
+            flex: 2;
+            padding: 10px;
+            border: 2px solid #000;
+            background-color: #0c356a;
+            border-radius: 4px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            color: #fff;
+        }
+
+        .form-field select:focus,
+        .form-field input:focus {
+            border-color: #000;
+            outline: none;
+            box-shadow: 0 0 10px #000;
+            padding-right: 2px;
+        }
+
+        /* Submit Button */
+        .submit-btn {
+            width: 100%;
+            padding: 16px;
+            border: 2px solid #000;
+            background-color: #0d92f4;
+            color: #fff;
+            font-size: 1rem;
+            font-weight: bold;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .submit-btn:hover {
+            background-color: #0b79d3;
+        }
+
+        /* Team Member Container */
+        .team-member {
+            border: 1px solid #000;
+            border-radius: 4px;
+            padding: 16px;
+            margin-top: 1.5rem;
+            font-size: 1.1rem;
+        }
+
+        /* Hide second form initially */
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <!-- Container for First Registration -->
+    <div id="form1" class="form-container">
+        <h1>PARTICIPANT REGISTRATION</h1>
+        <form id="registrationForm" method="POST" action="http://localhost/FWD/BACKEND/encipher_registrations.php">
+
+            <!-- Team Size Selection -->
+            <div class="form-field">
+                <i class="fas fa-user-friends"></i>
+                <label for="teamSize">TEAM SIZE:</label>
+                <select id="teamSize" name="teamSize" required onchange="updateTeamMembers()">
+                    <option value="">Select Team Size</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                </select>
+            </div>
+            <div id="teamMembersContainer"></div>
+            <button type="submit" class="submit-btn">SUBMIT</button>
+        </form>
+    </div>
+
+    <!-- Success Popup -->
+    <div id="successPopup" class="hidden">
+        <div class="popup-content">
+            <h2>Registration Successful!</h2>
+            <p>Your registration has been successfully submitted.</p>
+            <button onclick="closePopup()">Close</button>
+        </div>
+    </div>
+
+    <script>
+        // Update team members dynamically
+        function updateTeamMembers() {
+            const teamSize = document.getElementById('teamSize').value;
+            const teamMembersContainer = document.getElementById('teamMembersContainer');
+            teamMembersContainer.innerHTML = ''; // Clear existing fields
+            for (let i = 1; i <= teamSize; i++) {
+                addTeamMemberFields(i);
+            }
+        }
+
+        // Add fields for team members
+        function addTeamMemberFields(index) {
+            const teamMembersContainer = document.getElementById('teamMembersContainer');
+            const memberDiv = document.createElement('div');
+            memberDiv.classList.add('team-member');
+            memberDiv.innerHTML = `
+                <h3>Team Member ${index}</h3>
+                <div class="form-field">
+                    <i class="fas fa-user"></i>
+                    <label for="name${index}">NAME:</label>
+                    <input type="text" id="name${index}" name="name${index}" required>
+                </div>
+                <div class="form-field">
+                    <i class="fas fa-id-badge"></i>
+                    <label for="usn${index}">USN:</label>
+                    <input type="text" id="usn${index}" name="usn${index}" required>
+                </div>
+                <div class="form-field">
+                    <i class="fas fa-envelope"></i>
+                    <label for="collegeEmail${index}">COLLEGE MAIL ID:</label>
+                    <input type="email" id="collegeEmail${index}" name="collegeEmail${index}" required>
+                </div>
+                <div class="form-field">
+                    <i class="fas fa-phone"></i>
+                    <label for="contact${index}">PHONE NUMBER:</label>
+                    <input type="tel" id="contact${index}" name="contact${index}" pattern="[0-9]{10}" required>
+                </div>
+                <div class="form-field">
+                    <i class="fas fa-building"></i>
+                    <label for="branch${index}">BRANCH:</label>
+                    <select id="branch${index}" name="branch${index}" required>
+                        <option value="">Select your branch</option>
+                        <option value="cse">Computer Science</option>
+                        <option value="ece">Electronics & Communication</option>
+                        <option value="mech">Mechanical Engineering</option>
+                        <option value="civil">Civil Engineering</option>
+                        <option value="eee">Electrical & Electronics Engineering</option>
+                        <option value="it">Information Technology</option>
+                        <option value="bio">Biotechnology</option>
+                        <option value="aero">Aerospace Engineering</option>
+                    </select>
+                </div>
+                <div class="form-field">
+                    <i class="fas fa-calendar"></i>
+                    <label for="semester${index}">SEMESTER:</label>
+                    <select id="semester${index}" name="semester${index}" required>
+                        <option value="">Select your semester</option>
+                        <option value="1">1st Semester</option>
+                        <option value="2">2nd Semester</option>
+                        <option value="3">3rd Semester</option>
+                        <option value="4">4th Semester</option>
+                        <option value="5">5th Semester</option>
+                        <option value="6">6th Semester</option>
+                        <option value="7">7th Semester</option>
+                        <option value="8">8th Semester</option>
+                    </select>
+                </div>
+            `;
+            teamMembersContainer.appendChild(memberDiv);
+        }
+
+        // Display the success popup after form submission
+        function showPopup() {
+            document.getElementById('successPopup').classList.remove('hidden');
+        }
+
+        // Close the success popup
+        function closePopup() {
+            document.getElementById('successPopup').classList.add('hidden');
+        }
+    </script>
+</body>
+</html>

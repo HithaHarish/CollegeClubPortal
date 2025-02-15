@@ -1,0 +1,435 @@
+<html>
+  <head>
+    <title>BMSCE Pentagram Home</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cookie&family=Fredoka:wght@300..700&family=Gravitas+One&family=Signika+Negative:wght@300..700&display=swap" rel="stylesheet">
+  
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cookie&family=Fredoka:wght@300..700&family=Gravitas+One&family=Saira+Stencil+One&family=Signika+Negative:wght@300..700&display=swap" rel="stylesheet">
+   
+    <style>
+      *{
+        background-color: #000;
+        color: white;
+        font-family: "DM serif Display",serif;
+      }
+      .gravitas-one-regular {
+        font-family: "DM serif Display";
+        font-weight: 600;
+        font-style: normal;
+      }
+
+      .saira-stencil-one-regular {
+        font-family: "DM serif Display";
+        font-weight: 600;
+        font-style: normal;
+        color: #fff;
+      }
+
+
+      .cookie-regular {
+        font-family: "Cookie", cursive;
+        font-weight: 400;
+        font-style: normal;
+      }
+
+      .heading{
+        display:flex;
+        flex-direction: row;
+        align-items: top;
+        justify-content:space-around;
+        margin-top: 40px;
+      }
+      .logo1,.logo2{
+        height:180px;
+        width:180px;
+      }
+      .flex2{
+        display:flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+      h1{
+        justify-content: space-around;
+        align-items: center;
+        text-align: center;
+        margin: 0px;
+        padding: 0px;
+      }
+      h2{
+        justify-content: space-around;
+        align-items: center;
+        text-align: center;
+      }
+      p{
+        font-SIZE: 20;
+        margin-top: 30px;
+        text-align: justify;
+        line-height: 30px;
+        margin-bottom: 30px;
+        margin-left: 70px;
+        margin-right: 70px;
+      }
+      .topicheading{
+        text-align: start;
+        margin-left: 70px;
+        margin-top:50px;
+      }
+      .member{
+        display: flex;
+        flex-direction: column;
+        margin-top: 10px;
+        text-align: center;
+        flex:1;
+        justify-content: flex-start;
+      }
+      .profileicon{
+        height:200px;
+        width:200px;
+        align-self: center;
+        justify-content: center;
+        border-radius: 50%;
+        border: 3px solid #40a2d8;
+      }
+      .members{
+        margin-top: 30px;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: flex-start;
+        padding-top: 0px; 
+        margin-top: 0px;
+      }
+      .meminfo{
+        align-items:center;
+        justify-content: top;
+        align-self:center;
+        margin-bottom: 10px;
+        padding-top: 0px; 
+        margin-top: 0px;
+        
+      }
+   
+
+button {
+  background: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  cursor: pointer;
+  font-size: 2rem;
+  padding: 0.5rem;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 1;
+}
+
+button.prev {
+  left: 0;
+}
+
+button.next {
+  right: 0;
+}
+
+button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Navigation buttons */
+button {
+  background: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  cursor: pointer;
+  font-size: 2rem;
+  padding: 0.5rem;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 1;
+}
+
+button.prev {
+  left: 0;
+}
+
+button.next {
+  right: 0;
+}
+
+button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.Oswald {
+            font-family: "Oswald", sans-serif;
+            font-optical-sizing: auto;
+            font-weight: 500;
+            font-style: normal;
+        }
+  .ref {
+    text-align: center;
+    background-color: #0b60b0;
+    padding: 20px;
+    margin: 30px 70px;
+    border-radius: 10px;
+    color: #F0EDCF;
+  }
+
+  .ref h2 {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+  }
+
+  .subref {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 10px 0;
+  }
+
+  .subref img {
+    height: 50px;
+    width: 50px;
+    margin-right: 10px;
+  }
+
+  .subref a {
+    text-decoration: none;
+    color: #F0EDCF;
+    font-size: 1rem;
+    font-weight: 600;
+    transition: color 0.3s ease-in-out;
+  }
+
+  .subref a:hover {
+    color: #fff;
+  }
+
+
+  .profileicon:hover {
+    transform: scale(1.05);
+    transition: transform 0.3s ease-in-out;
+  }
+  
+.carousel {
+  width: 300px; 
+  overflow: hidden;
+  margin: auto;
+  position: relative;
+  border: 2px solid #ddd;
+  border-radius: 10px;
+}
+
+.carousel-track {
+  display: flex;
+  animation: slide-animation 18s infinite; 
+}
+
+
+.carousel-slide {
+  min-width: 100%; 
+  transition: transform 0.5s ease-in-out;
+}
+
+.carousel-slide img {
+  width: 100%;
+  display: block;
+  border-radius: 10px;
+}
+
+@keyframes slide-animation {
+  0% { transform: translateX(0); }
+  25% { transform: translateX(-100%); }
+  50% { transform: translateX(-200%); }
+  75% { transform: translateX(-300%); }
+  100% { transform: translateX(0); }
+}
+
+  .member h2:hover {
+    color: #40a2d8;
+  }
+      .meminfo h3 {
+        color: #0b60b0;
+      }
+      /* Reset margin and padding */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
+.navbar {
+        display: flex; /* Create a flex container */
+        justify-content: space-around; /* Distribute buttons evenly */
+        align-items: center; /* Center align items vertically */
+        background-color: #333; /* Dark background color */
+        padding: 10px; /* Add some padding around the bar */
+        position: sticky; /* Make it stick to the top of the viewport */
+        top: 0;
+        z-index: 1000;
+        flex-wrap: wrap; /* Allow buttons to wrap to a new row if necessary */
+        }
+
+        /* Buttons inside the navigation bar */
+        .nav-button {
+        background-color: #fff; /* Button background color */
+        color: #000; /* Button text color */
+        box-shadow: 1px 1px 10px #000;
+        padding: 10px 20px; /* Add padding for a nice size */
+        font-size: 16px; /* Adjust font size */
+        border-radius: 5px; /* Rounded corners */
+        cursor: pointer; /* Pointer cursor on hover */
+        transition: background-color 0.3s ease; /* Smooth hover effect */
+        margin: 5px; /* Add spacing between buttons */
+        text-decoration: none;
+        font-weight: bold;
+        
+        }
+
+        /* Button hover effect */
+        .nav-button:hover {
+        background-color: #42c9e4; /* Change color on hover */
+        }
+
+
+        /* Make the navigation bar sticky at the top */
+        .navbar {
+        background-color: #00d0ff;
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+        }
+    </style>
+  </head>
+  <body>
+    <div class="navbar" role="navigation">
+      <a class="nav-button" href="file:///C:/xampp/htdocs/FWD/FRONTEND/FILES/Home.1%20(1).html" aria-label="Navigate to Home">HOME</a>
+      <a class="nav-button" href="file:///C:/xampp/htdocs/FWD/FRONTEND/FILES/UE.1%20(1).html" aria-label="Navigate to Upcoming Events">UPCOMING EVENTS</a>
+      <a class="nav-button" href="file:///C:/xampp/htdocs/FWD/FRONTEND/FILES/PE.1%20(1).html" aria-label="Navigate to Past Events">PAST EVENTS</a>
+    </div>
+    <div class="heading Oswald" >
+      <a href=https://www.bmsce.ac.in/ target="_blank"><img class="logo1" src="BMSCE.webp" alt="BMSCE"></a>
+      <div class="flex2" style="padding-top: 30px;">
+      <h1 style="color:white">BMS COLLEGE OF ENGINEERING</h1>
+      <h2 class="cookie-regular;" style="color:#F0EDCF;"></h2>
+      <h1 style="color: white;">PENTAGRAM</h1>
+      <h2 style="color:white">The Mathematical Society</h2>
+      </div>
+      <a href="file:///C:/Users/gayat/OneDrive/Desktop/FWD/Home.html.html" folder\OneDrive\Desktop\Projects\FWD-3rdSem-ClgClubPortal\FWD\Home.html target="_blank"><img class="logo2" src="pentagram.png" alt="BMSCE Pentagram"></a>
+    </div>
+    <div class="carousel">
+      <div class="carousel-track">
+        <div class="carousel-slide" id="item1"><img src="Screenshot 2024-11-14 211911.png" ></div>
+        <div class="carousel-slide" id="item2"><img src="Screenshot 2024-11-14 212221.png" ></div>
+        <div class="carousel-slide" id="item3"><img src="Screenshot 2024-11-14 220830.png" ></div>
+        <div class="carousel-slide" id="item4"><img src="Screenshot 2024-11-14 220907.png" ></div>
+        <div class="carousel-slide" id="item5"><img src="Screenshot 2024-11-14 212321.png" ></div>
+        <div class="carousel-slide" id="item6"><img src="Screenshot 2024-11-14 220943.png" ></div>
+        <div class="carousel-slide" id="item7"><img src="spinlocked.jpg" ></div>
+        <div class="carousel-slide" id="item8"><img src="huntopia.jpg" ></div>
+      </div>
+    </div>    
+    <p >Pentagram is the mathematical society of BMSCE, founded in 2013, where individuals with a shared passion for
+    mathematics come together. The society was established with the aim of inculcating and promoting advanced mathematical
+    concepts among students while providing a common platform for them to share their knowledge. Pentagram encourages 
+    participation both inside and outside the curriculum, engaging students to deepen their understanding of mathematics 
+    in a collaborative environment.</p>
+
+    <p >The society primarily organizes inter-collegiate competitions and events to foster a love for numbers and analytical thinking.
+    It promotes intellectual curiosity and creativity while nurturing a deep appreciation for the beauty and elegance of 
+    mathematical concepts and theories. The Pentagram community stands as a vibrant and dynamic group, enhancing students'
+    mathematical skills and expanding their perspectives through problem-solving and theoretical discussions.</p>
+
+    <h2 class="topicheading saira-stencil-one-regular" style="color:red; justify-content: start;">CORE COMMITEE FOR THE YEAR 2024-25</h2>
+
+    <div class="members">
+    <div class="member">
+      <img class="profileicon" style="margin-left: 120px;"  src="profileicon.png">
+      <h2 style="margin-left: 120px;padding-top:15px;color:#40a2d8;" class="meminfo"><b>PRESIDENT</b></h2>
+      <h3 style="margin-left: 120px;" class="meminfo" ><b>Madhushree S Shetty</b></h3>
+      <h5 style="margin-left: 120px;padding-top: 0px; margin-top: 0px;color:#40a2d8;" class="meminfo">president@bmsce.ac.in</h5>
+    </div>
+    <div class="member">
+      <img class="profileicon"   src="profileicon.png">
+      <h2 class="meminfo" style="padding-top:15px;"><b>VICE PRESIDENT</b></h2>
+      <h3 class="meminfo" ><b>Sanchit Singla</b></h3>
+      <h5 style="padding-top: 0px; margin-top:0px; color:#40a2d8" class="meminfo">vicepresident@bmsce.ac.in</h5>
+    </div>
+    <div class="member">
+      <img class="profileicon" style="margin-right: 120px;"  src="profileicon.png">
+      <h2 style="margin-right: 120px;padding-top:15px;" class="meminfo"><b>SECRETARY</b></h2>
+      <h3 style="margin-right: 120px;" class="meminfo" ><b>Pranav Anantha Rao</b></h3>
+      <h5 style="margin-right: 120px; padding-top: 0px; margin-top: 0px;color:#40a2d8" class="meminfo">secretary@bmsce.ac.in</h5>
+    </div>
+  </div>
+
+  <div class="members" style="align-items: center; justify-content: first baseline;">
+    <div class="member">
+      <img class="profileicon" style="margin-left: 120px; justify-content: center; align-items: center;"  src="profileicon.png">
+      <h2 style="margin-left: 120px;padding-top:15px;" class="meminfo"><b>FINANCIAL HEAD</b></h2>
+      <h3 style="margin-left: 120px;"  class="meminfo"><b>K L Gireesh</b></h3>
+      <h5 style="margin-left: 120px;padding-top: 0px; margin-top: 0px;color:#40a2d8" class="meminfo">financialhead@bmsce.ac.in</h5>
+    </div>
+    <div class="member">
+      <img class="profileicon"   style="justify-content: center;align-items: center;" src="profileicon.png">
+      <h3 style="padding-top:15px;" class="meminfo"><b>DESIGN HEAD</b></h2>
+      <h3 class="meminfo" ><b>Aadya T H</b></h3>
+      <h5 style="padding-top: 0px; margin-top: 0px;color:#40a2d8" class="meminfo">designhead@bmsce.ac.in</h5>
+    </div>
+    <div class="member">
+      <img class="profileicon" style="margin-right: 120px; justify-content: center;align-items: center;"  src="profileicon.png">
+      <h3 style="margin-right: 120px; line-height: 25px;padding-top:15px;padding-bottom:1px;" class="meminfo"><b>SOCIAL MEDIA AND MARKETING HEAD</b></h2>
+      <h3 style="margin-right: 120px;" class="meminfo" ><b>Pratush Pandey</b></h3>
+      <h5 style="margin-right: 120px; padding-top: 0px; margin-top: 0px;color:#40a2d8" class="meminfo">socialmedia_marketinghead@bmsce.ac.in</h5>
+    </div>
+  </div>
+
+  <div class="members" style="margin-left:220px;margin-right:220px;">
+    <div class="member" style="margin-left: 30px; ">
+      <img class="profileicon" style="justify-content: center; align-items: center;"  src="profileicon.png">
+      <h3 class="meminfo" style="padding-top:15px;"><b>STUDENT COORDINATOR</b></h2>
+      <h3 class="meminfo" ><b>Kathasagarm Aishwarya</b></h3>
+      <h5 style="padding-top: 0px; margin-top: 0px;color:#40a2d8" class="meminfo">studentcoordinator@bmsce.ac.in</h5>
+    </div>
+    <div class="member">
+      <img class="profileicon" style="justify-content:center;align-items: center;"  src="profileicon.png">
+      <h3 style="line-height: 25px;padding-top:15px;" class="meminfo"><b>STUDENT COORDINATOR</b></h2>
+      <h3 class="meminfo" ><b>Nikhilesh C</b></h3>
+      <h5 style="padding-top: 0px; margin-top: 0px;color:#40a2d8;" class="meminfo">studentcoordinator@bmsce.ac.in</h5>
+    </div>
+  </div>
+  <div class="members"style="margin-left:250px;margin-right:220px;">
+    <div class="member">
+      <img class="profileicon" style=" justify-content: center; align-items: center;"  src="profileicon.png">
+      <h3  class="meminfo" style="padding-top:15px;"><b>EVENT ORGANISING HEAD</b></h3>
+      <h3 class="meminfo" ><b>Harika L T</b></h3>
+      <h5 style="padding-top: 0px; margin-top: 0px; color:40a2d8;" class="meminfo">eventorganisinghead@bmsce.ac.in</h5>
+    </div>
+    <div class="member">
+      <img class="profileicon" style="justify-content: center;align-items: center;"  src="profileicon.png">
+      <h3 style="line-height: 25px;padding-top:15px;" class="meminfo"><b>EVENT ORGANISING HEAD</b></h2>
+      <h3 class="meminfo" ><b>Ashni Gupta </b></h3>
+      <h5 style="padding-top: 0px; margin-top: 0px; color:#40a2d8;" class="meminfo">eventorganisinghead@bmsce.ac.in</h5>
+    </div>
+  </div>
+
+  <div class="ref" style="background-color:#0b60b0;">
+    <h2 style="background-color:#0b60b0;">About Us</h2>
+    <div class="subref" style="background-color:#0b60b0; justify-items: center;">
+    <img class="refimg" style="height: 60px; width:60px;" src="instagram.png">
+    <a href=https://www.instagram.com/bmsce_pentagram/ style="background-color:#0b60b0;justify-content: center;">@bmsce_pentagram</a>
+    </div>
+    <div class="subref" style="background-color:#0b60b0;">
+      <img class="refimg" style="height: 50px;width:50px; justify-items: center;" src="Facebook .png">
+      <a href=https://www.facebook.com/groups/pentagrambmsce/ style="background-color:#0b60b0; justify-content: center;">@bmsce_pentagram</a>
+      </div>
+  </div>
+  </body>
+</html>
+
+
