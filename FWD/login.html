@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login Page</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+html, body {
+  height: 100%; /* Ensure full height */
+  margin: 0; /* Remove default margin */
+  background-color: #000; /* Set background color to black */
+}
+
+body {
+  font-family: Arial, sans-serif;
+  display: flex;
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
+  height: 100%; /* Make the body take full height */
+  background-color: #000; /* Background is black */
+}
+
+.login-container {
+  background-color: #fff; /* White background for the login box */
+  padding: 50px;
+  border-radius: 5px;
+  width: 300px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  animation: fadeIn 0.5s ease-in-out;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
+
+
+h2 {
+  text-align: center;
+  font-size: 2rem; /* Make the font larger */
+  color: #000;
+  margin-bottom: 20px;
+  font-weight: bold; /* Make the font bold */
+}
+
+form div {
+  margin-bottom: 15px;
+}
+
+input {
+  width: 100%;
+  padding: 12px; /* Increase padding for bigger input boxes */
+  margin-top: 5px;
+  border: 2px solid #ddd; /* Add border */
+  border-radius: 5px; /* Rounded corners for input boxes */
+  font-size: 1.1rem; /* Increase font size */
+  transition: border-color 0.3s ease-in-out;
+}
+
+input:focus {
+  border-color: #4CAF50; /* Green border when focused */
+  outline: none;
+}
+
+button {
+  width: 100%;
+  padding: 12px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 3px;
+  font-size: 1.2rem; /* Increase font size of the button */
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #45a049;
+}
+
+#error-message {
+  color: red;
+  text-align: center;
+  font-size: 14px;
+  margin-top: 10px;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+    /* Add custom background effect */
+    .login-container::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(to bottom, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.5));
+      z-index: -1;
+      border-radius: 5px;
+    }
+
+    /* Error message styling */
+    #error-message {
+      font-weight: bold;
+      margin-top: 10px;
+    }
+
+    /* Button focus effect */
+    button:focus {
+  box-shadow: 0 0 10px rgba(76, 175, 80, 0.5);
+}
+
+  </style>
+</head>
+<body>
+  <div class="login-container">
+    <h2>Login</h2>
+    <form id="loginForm">
+      <div>
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" required>
+      </div>
+      <div>
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required>
+      </div>
+      <button type="submit">Login</button>
+    </form>
+    <p id="error-message"></p>
+  </div>
+
+  <script>
+    document.getElementById('loginForm').addEventListener('submit', function(event) {
+      event.preventDefault(); // Prevent form submission to a server
+
+      // Get the values from the input fields
+      const username = document.getElementById('username').value;
+      const password = document.getElementById('password').value;
+
+      // Predefined multiple users' credentials
+      const users = {
+        user1: { username: 'HithaHarish', password: 'abcde123' },
+        user2: { username: 'GayathriS', password: 'gayu1307'},
+        user3: {username: "HarshaB", password: 'harsha666'}
+      };
+
+      // Function to check the username and password
+      function checkLogin(username, password) {
+        // Iterate over all users and check for a match
+        for (let key in users) {
+          if (users[key].username === username && users[key].password === password) {
+            return true; // Login successful
+          }
+        }
+        return false; // Login failed
+      }
+
+      // Perform login check
+      if (checkLogin(username, password)) {
+        alert('Login successful!');
+        // Redirect to another page (e.g., dashboard) after successful login
+        window.location.href = 'file:///C:/xampp/htdocs/FWD/events.html'; // Replace with your desired page
+      } else {
+        // Show an error message if login fails
+        document.getElementById('error-message').innerText = 'Invalid username or password';
+      }
+    });
+  </script>
+</body>
+</html>

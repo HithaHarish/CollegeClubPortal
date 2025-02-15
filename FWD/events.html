@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Events</title>
+  <style>
+    /* Global styles */
+    body {
+      font-family: 'DM Serif Display', serif;
+      background-color: #000;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      color: #fff;
+    }
+
+    /* Container for the page content */
+    .container {
+      background-color: #222;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+      width: 80%;
+      max-width: 900px;
+    }
+
+    /* Heading */
+    h1 {
+      text-align: center;
+      color: #ecf0f1;
+      font-size: 50px; /* Increased size */
+      margin-bottom: 30px;
+      font-family: 'DM Serif Display', serif;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+
+    /* Style for the unordered list */
+    ul {
+      list-style: none;
+      padding: 0;
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 30px; /* Increased gap between events */
+    }
+
+    /* Style for each list item */
+    li {
+      background-color: #72cbe9;
+      border-radius: 12px;
+      padding: 20px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 300px; /* Adjusted height for the image and content */
+      text-align: center;
+    }
+
+    /* Hover effects for list items */
+    li:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+    }
+
+    /* Links styling */
+    a {
+      text-decoration: none;
+      color: #000;
+      font-size: 22px; /* Increased size */
+      font-weight: 700; /* Bold */
+      text-transform: uppercase; /* Make text uppercase */
+      margin-bottom: 15px; /* Space between link and image */
+      transition: color 0.3s;
+    }
+
+    a:hover {
+      color: #0f0cde;
+      text-decoration: underline;
+    }
+
+    /* Image styling */
+    .event-image {
+      width: 100%;
+      height: 200px; /* Increased height for images */
+      border-radius: 8px;
+      object-fit: cover;
+      margin-bottom: 15px; /* Space between image and content */
+    }
+
+    /* Style for the text under images */
+    .event-text {
+      font-size: 16px;
+      color: #bdc3c7;
+      margin-top: 10px;
+    }
+  </style>
+  <!-- Include Google Fonts for better typography -->
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="container">
+    <h1>Events Hosted</h1>
+    <ul>
+      <li>
+        <a href="http://localhost/FWD/eureka_info.php">Eureka Info</a>
+        <img class="event-image" src="Screenshot 2024-11-14 211911.png" alt="Eureka Info">
+      </li>
+      <li>
+        <a href="http://localhost/FWD/encipher_info.php">Encipher Info</a>
+        <img class="event-image" src="Screenshot 2024-11-14 212221.png" alt="Encipher Info">
+      </li>
+      <li>
+        <a href="http://localhost/FWD/pi_info.php">Pi Info</a>
+        <img class="event-image" src="Screenshot 2024-11-14 212321.png" alt="Pi Info">
+      </li>
+      <li>
+        <a href="http://localhost/FWD/battle_info.php">Battle Info</a>
+        <img class="event-image" src="Screenshot 2024-11-14 220943.png" alt="Battle Info">
+      </li>
+      <li>
+        <a href="http://localhost/FWD/escape_info.php">Escape Info</a>
+        <img class="event-image" src="Screenshot 2024-11-14 220907.png" alt="Escape Info">
+      </li>
+      <li>
+        <a href="http://localhost/FWD/volt_info.php">Volt Info</a>
+        <img class="event-image" src="Screenshot 2024-11-14 220830.png" alt="Volt Info">
+      </li>
+    </ul>
+  </div>
+</body>
+</html>
